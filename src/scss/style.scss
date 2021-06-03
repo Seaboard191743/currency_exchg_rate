@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap");
+
+$darkBlue: #003049;
+$primaryRed: #d62828;
+$lightGrey: #f8f9fa;
+$borderGrey: #e9ecef;
+$goldYellow: #e9c46a;
+$primaryTurquoise: #2a9d8f;
+$primaryOrange: #f4a261;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.wrapper {
+  width: Min(760px, 100%);
+  padding: 2rem 1rem;
+  margin: 0 auto;
+}
+.header {
+  height: 20vh;
+  background: $primaryTurquoise;
+  display: grid;
+  grid-template-columns: 360px repeat(2, calc((760px - 360px - 2rem) / 2));
+  &__title {
+    padding: 2rem 1rem;
+    font-size: 1rem;
+    letter-spacing: 0.03rem;
+    color: rgba(255, 255, 255, 1);
+    &:last-of-type {
+      text-align: right;
+    }
+  }
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+.data {
+  display: flex;
+  flex-flow: row wrap;
+  background: $lightGrey;
+  border-bottom: 1px solid $borderGrey;
+  & > * {
+    padding: 1.5rem 1rem;
+  }
+  &__name {
+    width: Min(360px, 100%);
+    font-weight: 700;
+    letter-spacing: 0.03rem;
+  }
+  &__abbr,
+  &__rate {
+    width: Min(calc((760px - 2rem - 360px) / 2), 50%);
+  }
+  &__abbr {
+    &--st {
+      color: $primaryOrange;
+    }
+  }
+  &__rate {
+    text-align: right;
+    margin-left: auto;
+  }
+}
